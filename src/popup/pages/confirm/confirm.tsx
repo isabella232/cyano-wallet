@@ -35,8 +35,8 @@ const enhancer = (Component: React.ComponentType<{}>) => (props: RouteComponentP
     lifecycle({
       componentDidMount: async () => {
         const wallet = getWallet(reduxProps.wallet!);
-
-        const identityConfirm = props.location.state.identityConfirm;
+        const identityConfirmKey = 'identityConfirm'
+        const identityConfirm = (props.location.state || {})[identityConfirmKey];
 
         if (identityConfirm) {
           if (isIdentityLedgerKey(wallet)) {

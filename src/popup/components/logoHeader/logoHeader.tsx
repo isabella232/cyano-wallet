@@ -26,7 +26,7 @@ interface OuterProps {
   showChange?: boolean;
   showChangeBack?: boolean;
   title: string;
-  isPage: string;
+  isPage?: string;
 }
 
 const enhancer = (Component: React.ComponentType<Props>) => (props: OuterProps) =>
@@ -37,16 +37,16 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: OuterProps) 
           routerProps.history.push('/');
         },
         handleChange: () => {
-          if (props.isPage == "Account") {
+          if (props.isPage === "Account") {
             routerProps.history.push('/account/change');
-          } else if (props.isPage =="Identity") {
+          } else if (props.isPage === "Identity") {
             routerProps.history.push('/identity/change');
           }
         },
         handleChangeBack: () => {
-          if (props.isPage == "Account") {
+          if (props.isPage === "Account") {
             routerProps.history.push('/');
-          } else if (props.isPage == "Identity") {
+          } else if (props.isPage === "Identity") {
             routerProps.history.push('/identity');
           }
         },

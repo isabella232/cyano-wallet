@@ -33,6 +33,7 @@ export interface Props {
   showAccount: boolean;
   showChange: boolean;
   showChangeBack: boolean;
+  isPage?: string
 }
 
 export const LogoHeaderView: React.SFC<Props> = (props) => (
