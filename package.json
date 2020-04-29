@@ -32,6 +32,7 @@
     "fs-extra": "3.0.1",
     "lodash": "^4.17.10",
     "long": "^4.0.0",
+    "node-hid": "0.7.2",
     "object-assign": "4.1.1",
     "ontology-ts-sdk": "^1.1.0",
     "ontology-ts-test": "^0.2.37",

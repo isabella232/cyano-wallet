@@ -4,7 +4,8 @@ let oldLockfile = fs.readFileSync('yarn.lock.bak', 'utf8')
 let oldLockfileObj = lockfile.parse(oldLockfile).object
 let newLockfile = fs.readFileSync('yarn.lock', 'utf8')
 let newLockfileObj = lockfile.parse(newLockfile).object
-let excludedModules = [/node\-hid.*/]
+// let excludedModules = [/node\-hid.*/]
+let excludedModules = []
 function isExcluded(str) {
     for (let i = 0; i < excludedModules.length; i++) {
         let regexp = excludedModules[i]
