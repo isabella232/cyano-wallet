@@ -1,4 +1,4 @@
-import * as Long from 'long';
+import Long from 'long';
 import { CONST, Crypto, Oep4, Parameter, ParameterType, TransactionBuilder, utils } from 'ontology-ts-sdk';
 import { decryptAccount, getAccount } from 'src/api/accountApi';
 import { encodeAmount } from 'src/popup/utils/number';

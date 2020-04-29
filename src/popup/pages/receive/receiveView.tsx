@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Cyano Wallet.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as QRCode from 'qrcode.react';
+import QRCode from 'qrcode.react';
 import * as React from 'react';
 import { Button, Message } from 'semantic-ui-react';
 import { AccountLogoHeader, Filler, Spacer, StatusBar, View } from '../../components';

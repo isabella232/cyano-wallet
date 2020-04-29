@@ -32,15 +32,15 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
     handleLedger: () => {
       props.history.push('/ledger/signup');
     },
+    handleOAuth: () => {
+      props.history.push('/directAuth/login')
+    },
     handleRestore: () => {
       props.history.push('/restore');
     },
     handleTrezor: () => {
       props.history.push('/trezor/signup');
     },
-    handleOAuth: () => {
-      props.history.push('/directAuth/login')
-    }
   }, (injectedProps) => (
     <Component {...injectedProps} />
   ))

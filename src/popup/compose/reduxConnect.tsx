@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with Cyano Wallet.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as equal from 'fast-deep-equal';
+import equal from 'fast-deep-equal';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { Dispatch, Store, Unsubscribe } from 'redux';
