@@ -20,6 +20,8 @@ import DirectWebSDK from '@toruslabs/torus-direct-web-sdk'
 import * as React from 'react';
 import { RouterProps } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
+import { accountImportPrivateKey } from 'src/api/accountApi';
+import { getBackgroundManager } from 'src/popup/backgroundManager';
 // import { importTrezorKey } from '../../../api/trezorApi';
 import { reduxConnect, withProps } from '../../compose';
 import { Actions, GlobalState } from '../../redux';
@@ -38,7 +40,8 @@ const torus = new DirectWebSDK({
 torus.init()
 
 const mapStateToProps = (state: GlobalState) => ({
-  loading: state.loader.loading
+  loading: state.loader.loading,
+  wallet: state.wallet.wallet
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({ 
@@ -48,13 +51,22 @@ const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
 }, dispatch);
 
 const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps) => (
-  reduxConnect(mapStateToProps, mapDispatchToProps, (reduxProps) => (
+  reduxConnect(mapStateToProps, mapDispatchToProps, (reduxProps, actions) => (
     withProps({
       handleCancel: () => {
         props.history.goBack();
       },
-      handleGoogle: () => {
-        torus.triggerLogin('google', 'google').then(console.log).catch(console.error)
+      handleGoogle: async () => {
+        try {
+          const obj = await torus.triggerLogin('google', 'google')
+          const { wallet } = accountImportPrivateKey(obj.privateKey.toString(), '', reduxProps.wallet)
+          await actions.setWallet(wallet);
+          await getBackgroundManager().refreshBalance();
+          props.history.push('/dashboard');
+        } catch (e) {
+          // tslint:disable-next-line:no-console
+          console.warn("could not retrieve key from DirectAuth: ", e)
+        }
       }
     }, (injectedProps) => (
       <Component {...injectedProps} loading={reduxProps.loading} />

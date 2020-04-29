@@ -32,6 +32,7 @@ export const DirectAuthLoginView: React.SFC<Props> = (props) => (
     <View orientation="column" className="part gradient">
       <LogoHeader title="Login" />
       <Button disabled={props.loading} onClick={props.handleGoogle}>Google</Button>
+      <Button disabled={props.loading} onClick={props.handleCancel}>Cancel</Button>
     </View>
     <StatusBar />
   </View>
