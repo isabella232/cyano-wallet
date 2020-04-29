@@ -99,6 +99,8 @@ const unsubscribe = store.subscribe(() => {
           <Route path="/create" exact={true} component={Pages.Create} />
           <Route path="/sign-up" exact={true} component={Pages.Signup} />
 
+          <Route path="/directauth/login" exact={true} component={Pages.DirectAuthLogin} />
+
           <Route path="/ledger/create" exact={true} component={Pages.LedgerCreate} />
           <Route path="/ledger/import" exact={true} component={Pages.LedgerImport} />
           <Route path="/ledger/new" exact={true} component={Pages.LedgerNew} />

@@ -3,6 +3,7 @@
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
+      "torus-direct-web-sdk.js",
       "node_modules/**/*.ts"
     ]
   },

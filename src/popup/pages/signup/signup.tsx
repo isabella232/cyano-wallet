@@ -37,6 +37,9 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
     },
     handleTrezor: () => {
       props.history.push('/trezor/signup');
+    },
+    handleOAuth: () => {
+      props.history.push('/directAuth/login')
     }
   }, (injectedProps) => (
     <Component {...injectedProps} />

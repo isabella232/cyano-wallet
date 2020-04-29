@@ -26,6 +26,7 @@ export interface Props {
   handleRestore: () => void;
   handleLedger: () => void;
   handleTrezor: () => void;
+  handleOAuth: () => void;
 }
 
 export const SignupView: React.SFC<Props> = (props) => (
@@ -47,8 +48,10 @@ export const SignupView: React.SFC<Props> = (props) => (
       </View>
      <View className="center ledgerText">
           <Clickable onClick={() => props.handleLedger()}>Ledger</Clickable>
-          <View>&nbsp;or&nbsp;</View>
+          <View>,&nbsp;</View>
           <Clickable onClick={() => props.handleTrezor()}>Trezor</Clickable>
+          <View>&nbsp;or&nbsp;</View>
+          <Clickable onClick={() => props.handleOAuth()}>DirectAuth</Clickable>
      </View>
     </View>
     <StatusBar />
