@@ -40,18 +40,19 @@ export const SignupView: React.SFC<Props> = (props) => (
     <View orientation="column" fluid={true} content={true}>
       <View orientation="column" fluid={true} className="center signButtons">
         <Spacer />
+        <Button size="small" onClick={props.handleOAuth}>Login</Button>
+        <Spacer />
         <Button size="small" onClick={props.handleCreate}>New account</Button>
         <Spacer />
         <Button size="small" onClick={props.handleImport}>Import private key</Button>
         <Spacer />
         <Button size="small" onClick={props.handleRestore}>Restore account</Button>
+        
       </View>
      <View className="center ledgerText">
           <Clickable onClick={() => props.handleLedger()}>Ledger</Clickable>
-          <View>,&nbsp;</View>
-          <Clickable onClick={() => props.handleTrezor()}>Trezor</Clickable>
           <View>&nbsp;or&nbsp;</View>
-          <Clickable onClick={() => props.handleOAuth()}>DirectAuth</Clickable>
+          <Clickable onClick={() => props.handleTrezor()}>Trezor</Clickable>
      </View>
     </View>
     <StatusBar />

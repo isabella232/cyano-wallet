@@ -58,8 +58,8 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
       },
       handleGoogle: async () => {
         try {
-          const obj = await torus.triggerLogin('google', 'google')
-          const { wallet } = accountImportPrivateKey(obj.privateKey.toString(), '', reduxProps.wallet)
+          const obj = await torus.triggerLogin('google', 'google');
+          const { wallet } = accountImportPrivateKey(obj.privateKey.toString(), '', reduxProps.wallet);
           await actions.setWallet(wallet);
           await getBackgroundManager().refreshBalance();
           props.history.push('/dashboard');

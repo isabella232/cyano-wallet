@@ -18,7 +18,7 @@
 import * as React from 'react';
 // import { Field, Form } from 'react-final-form';
 import { Button } from 'semantic-ui-react';
-import { LogoHeader, StatusBar, View } from '../../components';
+import { LogoHeader, Spacer, StatusBar, View } from '../../components';
 // import { required } from '../../utils/validate';
 
 export interface Props {
@@ -29,9 +29,11 @@ export interface Props {
 
 export const DirectAuthLoginView: React.SFC<Props> = (props) => (
   <View orientation="column" fluid={true}>
-    <View orientation="column" className="part gradient">
+    <View orientation="column" fluid={true} className="part gradient">
       <LogoHeader title="Login" />
+      <Spacer />
       <Button disabled={props.loading} onClick={props.handleGoogle}>Google</Button>
+      <Spacer />
       <Button disabled={props.loading} onClick={props.handleCancel}>Cancel</Button>
     </View>
     <StatusBar />
